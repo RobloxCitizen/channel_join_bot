@@ -3,3 +3,9 @@ services:
     build: .
     restart: unless-stopped
     env_file: .env
+    volumes:
+      # База с отложенными задачами переживает пересборку контейнера
+      - bot_data:/app/data
+
+volumes:
+  bot_data:
